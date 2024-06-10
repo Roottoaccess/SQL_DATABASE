@@ -33,3 +33,24 @@ select * from payment;
 -- Now the task
 select mode , count(customer) from payment group by mode;
 
+select city, count(customer) from payment where mode = "Credit Card" group by city order by city asc;
+
+-- To prevent the safe mode error while updating we can use the command
+set sql_safe_updates = 0;
+
+-- Update query in sql
+update payment 
+set mode = "NetworkBanking" 
+where mode = "Netbanking";
+
+-- Another update query to perform the delete query
+update payment
+set mode = "Poliester"
+where customer_id = 109;
+
+-- deleting the Poliester mode row
+delete from payment where mode = "Poliester";
+
+
+select * from payment;
+
