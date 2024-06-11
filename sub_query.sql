@@ -43,3 +43,16 @@ where rollno in (select rollno from student where rollno % 2 = 0);
 select max(marks) from (select * from student where city = "Delhi")as temp;
 
 
+-- Creating the view of the table
+-- Creating a vertual table
+create view view1 as
+select rollno, name, marks from student;
+
+select * from view1;
+
+select name, marks from view1 where marks > 90;
+
+-- To drop a view
+-- drop view view1;
+
+
